@@ -1,11 +1,6 @@
-import 'package:http/http.dart' as http;
-import 'package:cbpq/url_helper.dart';
 import 'package:xml/xml.dart' as xml;
 
-class Extractor {
-
-  /* steps 
-<!-- content 7 --> at[e <!-- side right -->
+/* steps
 remove br
 remove hr
 remove ç ã
@@ -14,24 +9,31 @@ remove checked
 remove  color=black
   */
 
-  Future call() async {
-    String url = UrlHelper().urlCbpq('90155');
-    http.read(url).then((text) {
-      String newXml = removeHead(text);
-
-      newXml = newXml.replaceFirst(' class=\"\"', '');
-      newXml = newXml.replaceFirst('<!DOCTYPE html>', '');
-      
-      
-      print(newXml);
-      var document = xml.parse(newXml);
-      print(document);
-    });
+class Extractor {
+  xml.XmlDocument siteToXml(String response) {
+    String cleanResponse = _extractContent(response);
+    print(response);
+    return xml.parse(cleanResponse);
   }
 
-  String removeHead(String xml) {
-    int start = xml.indexOf('<head>');
-    int end = xml.indexOf('</head>') + 7;
-    return xml.replaceRange(start, end, '');
+  _extractContent(String response) {
+    // extract content
+    String start = "<!-- content 7 -->";
+    int startIndex = response.indexOf(start);
+    startIndex = startIndex + start.length;
+    int endIndex = response.lastIndexOf("<!-- side right -->");
+    response = response.substring(startIndex, endIndex);
+
+    // replaces
+    response = response
+        .replaceAll("<br>", "")
+        .replaceAll("<hr>", "")
+        .replaceAll("&ccedil;", "ç")
+        .replaceAll("&atilde;", "ã")
+        .replaceAll("checked", "")
+        .replaceAll("color=black", "");
+
+    response.lastIndexOf("class=\"img-thumbnail cbpq-consulta-img\">", )
+
   }
 }

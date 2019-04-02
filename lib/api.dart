@@ -1,21 +1,14 @@
 import 'package:http/http.dart' as http;
 import 'package:cbpq/url_helper.dart';
-import 'package:xml/xml.dart' as xml;
+import 'package:cbpq/extract_xml.dart';
 
 class Api {
 
   Future call() async {
+
     String url = UrlHelper().urlCbpq('90155');
     http.read(url).then((text) {
-      String newXml = removeHead(text);
-
-      newXml = newXml.replaceFirst(' class=\"\"', '');
-      newXml = newXml.replaceFirst('<!DOCTYPE html>', '');
-      
-      
-      print(newXml);
-      var document = xml.parse(newXml);
-      print(document);
+        Extractor(text).siteToXml();
     });
   }
 
