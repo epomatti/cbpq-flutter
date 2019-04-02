@@ -2,7 +2,17 @@ import 'package:http/http.dart' as http;
 import 'package:cbpq/url_helper.dart';
 import 'package:xml/xml.dart' as xml;
 
-class Api {
+class Extractor {
+
+  /* steps 
+<!-- content 7 --> at[e <!-- side right -->
+remove br
+remove hr
+remove ç ã
+append </img> after class="img-thumbnail cbpq-consulta-img">
+remove checked
+remove  color=black
+  */
 
   Future call() async {
     String url = UrlHelper().urlCbpq('90155');
