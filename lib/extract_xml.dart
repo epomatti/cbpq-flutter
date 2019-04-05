@@ -1,21 +1,9 @@
 import 'package:xml/xml.dart' as xml;
-import 'dart:io';
-
-/* steps
-remove br
-remove hr
-remove ç ã
-append </img> after class="img-thumbnail cbpq-consulta-img">
-remove checked
-remove  color=black
-  */
 
 class Extractor {
-   siteToXml(String response) {
+  siteToXml(String response) {
     String cleanResponse = _extractContent(response);
-    //print(response);
-    write(cleanResponse);
-    //return xml.parse(cleanResponse);
+    return xml.parse(cleanResponse);
   }
 
   _extractContent(String response) {
@@ -37,18 +25,8 @@ class Extractor {
 
     // Appends
     String img = "class=\"img-thumbnail cbpq-consulta-img\">";
-    response.replaceFirst(img, img + "</img>");
+    response = response.replaceFirst(img, img + "</img>");
 
     return response;
   }
-
-  write(String cleanResponse) async {
-    print(File('/home/evandro/Desktop/data.txt').existsSync());
-  var file = File('/home/evandro/Desktop/data.txt').createSync();
-  var contents;
-    var fileCopy = await File('/home/evandro/Desktop/data.txt').writeAsString(cleanResponse);
-    //print(await fileCopy.exists());
-    //print(await fileCopy.length());
-
-}
 }
