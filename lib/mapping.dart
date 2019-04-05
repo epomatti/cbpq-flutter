@@ -4,8 +4,8 @@ import 'package:xml/xml.dart';
 class Mapping {
   CBPQ map(XmlDocument xml) {
     CBPQ cbpq = CBPQ();
-    print(xml.children
-        .elementAt(1).children.elementAt(1).children.elementAt(1));
+    //print(xml.toXmlString(pretty: true, indent: '\t'));
+    print(xml.children[1].children[15].children[1]);
     // XmlNode dados = xml.children
     //     .elementAt(1)
     //     .children

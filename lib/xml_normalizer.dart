@@ -14,8 +14,11 @@ class XmlNormalizer {
     int endIndex = response.lastIndexOf("<!-- side right -->");
     response = response.substring(startIndex, endIndex);
 
-    // replaces
+    // Replaces
     response = response
+        .replaceAll("\r", "")
+        .replaceAll("\n", "")
+        .replaceAll("\t", "")
         .replaceAll("<br>", "")
         .replaceAll("<hr>", "")
         .replaceAll("&ccedil;", "ç")
@@ -23,10 +26,23 @@ class XmlNormalizer {
         .replaceAll("checked", "")
         .replaceAll("color=black", "");
 
+    // Remove comments
+    String openingTag = "<!--";
+    String closingTag = "-->";
+    int openingIndex = response.indexOf(openingTag);
+    int closingIndex = closingTag.length;
+    while (openingIndex != -1) {
+      response.split(openingTag);
+
+      int end = response.indexOf(closingTag) + closingIndex;
+      openingIndex = response.indexOf(openingTag);
+    }
+
     // Appends
     String img = "class=\"img-thumbnail cbpq-consulta-img\">";
     response = response.replaceFirst(img, img + "</img>");
 
     return response;
   }
+  
 }
