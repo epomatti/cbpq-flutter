@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 
 class ConsultaCadastroResult extends StatelessWidget {
 
-  final CBPQ _cbpq;
+  final CBPQ cbpq;
 
-  const ConsultaCadastroResult(this._cbpq);
+  const ConsultaCadastroResult(this.cbpq);
   
   @override
   Widget build(BuildContext context) {
@@ -20,14 +20,14 @@ class ConsultaCadastroResult extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text(_cbpq.atleta),
+                Text(cbpq.atleta),
                 SizedBox(
                   height: 16.0,
                 ),
                 Center(
                   child: CircleAvatar(
                     child: Image(
-                      image: NetworkImage(_cbpq.foto),
+                      image: NetworkImage(cbpq.foto),
                     ),
                   ),
                 ),

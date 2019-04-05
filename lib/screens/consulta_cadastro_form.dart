@@ -9,28 +9,44 @@ class ConsultaCadastroForm extends StatefulWidget {
 }
 
 class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
-  String _documento;
-  bool _loading;
+  String documento;
+  bool loading;
+  String errorMessage;
+  bool isButtonDisabled;
 
   @override
   void initState() {
     super.initState();
-    _loading = false;
+    loading = false;
+    isButtonDisabled = true;
   }
 
-  _onChange(String text) {
-    this._documento = text;
+  onChange(String text) {
+    int value = int.tryParse(text);
+    if (value != null) {
+      setState(() {
+        documento = text;
+        errorMessage = null;
+        isButtonDisabled = false;
+      });
+    } else {
+      setState(() {
+        errorMessage =
+            text.length > 0 ? 'Digite apenas caracteres numéricos.' : null;
+        isButtonDisabled = true;
+      });
+    }
   }
 
-  _submit(BuildContext context) {
+  submit(BuildContext context) {
     setState(() {
-      _loading = true;
+      loading = true;
     });
 
     // Todo: Tratar exceção
-    Api().call(_documento).then((cbpq) {
+    Api().call(documento).then((cbpq) {
       setState(() {
-        _loading = false;
+        loading = false;
       });
       print(cbpq.atleta);
       return cbpq;
@@ -38,14 +54,36 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
       Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => ConsultaCadastroResult(cbpq)),
+          builder: (context) => ConsultaCadastroResult(cbpq),
+        ),
       );
     });
   }
 
+  TextField buildTextField() {
+    return TextField(
+      style: Theme.of(context).textTheme.display1,
+      onChanged: (String text) {
+        onChange(text);
+      },
+      keyboardType: TextInputType.number,
+      decoration: InputDecoration(
+        errorText: errorMessage != null ? errorMessage : null,
+        hintText: 'Número da CBPQ',
+      ),
+    );
+  }
+
+  RaisedButton buildSubmitButton() {
+    return RaisedButton(
+      onPressed: isButtonDisabled ? null : () => submit(context),
+      child: Text('Submit'),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    if (_loading) {
+    if (loading) {
       return new Center(
         child: new CircularProgressIndicator(),
       );
@@ -63,17 +101,8 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
                   Text(
                     'Digite a CBPQ:',
                   ),
-                  TextField(
-                    style: Theme.of(context).textTheme.display1,
-                    onChanged: (String text) {
-                      _onChange(text);
-                    },
-                    keyboardType: TextInputType.number,
-                  ),
-                  RaisedButton(
-                    onPressed: () => _submit(context),
-                    child: Text('Submit'),
-                  ),
+                  buildTextField(),
+                  buildSubmitButton(),
                 ],
               ),
             ],
