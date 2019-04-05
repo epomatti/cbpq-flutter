@@ -93,18 +93,11 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
           titleText: 'Consulta Cadastro',
         ),
         body: Center(
-          child: ListView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    'Digite a CBPQ:',
-                  ),
-                  buildTextField(),
-                  buildSubmitButton(),
-                ],
-              ),
+              buildTextField(),
+              buildSubmitButton(),
             ],
           ),
         ),
