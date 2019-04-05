@@ -57,24 +57,38 @@ class _HomeState extends State<Home> {
         title: Text("CBPQ"),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
           children: <Widget>[
-            Text(
-              'Digite a CBPQ:',
-            ),
-            TextField(
-              style: Theme.of(context).textTheme.display1,
-              onChanged: (String text) {
-                _onChange(text);
-              },
-              keyboardType: TextInputType.number,
-            ),
-            RaisedButton(
-              onPressed: () => _submit(),
-              child: Text('Submit'),
-            ),
-            Text(_cbpq.atleta),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'Digite a CBPQ:',
+                ),
+                TextField(
+                  style: Theme.of(context).textTheme.display1,
+                  onChanged: (String text) {
+                    _onChange(text);
+                  },
+                  keyboardType: TextInputType.number,
+                ),
+                RaisedButton(
+                  onPressed: () => _submit(),
+                  child: Text('Submit'),
+                ),
+                Text(_cbpq.atleta),
+                SizedBox(
+                  height: 16.0,
+                ),
+                Center(
+                  child: CircleAvatar(
+                    child: Image(
+                      image: NetworkImage(_cbpq.foto),
+                    ),
+                  ),
+                )
+              ],
+            )
           ],
         ),
       ),
