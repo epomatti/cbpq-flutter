@@ -1,3 +1,4 @@
+import 'package:cbpq/cbpq.dart';
 import 'package:flutter/material.dart';
 import 'package:cbpq/api.dart';
 
@@ -24,11 +25,25 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   String _documento;
+  CBPQ _cbpq;
+
+  @override
+  void initState() {
+    super.initState();
+    setState(
+      () {
+        _cbpq = CBPQ();
+      },
+    );
+  }
 
   _submit() {
-    Api().call(_documento);
+    Api().call(_documento).then((cbpq) {
+      setState(() {
+        _cbpq = cbpq;
+      });
+    });
   }
 
   _onChange(String text) {
@@ -59,6 +74,7 @@ class _HomeState extends State<Home> {
               onPressed: () => _submit(),
               child: Text('Submit'),
             ),
+            Text(_cbpq.atleta),
           ],
         ),
       ),
