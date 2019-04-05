@@ -1,7 +1,7 @@
 import 'package:xml/xml.dart' as xml;
 
 class Extractor {
-  siteToXml(String response) {
+  xml.XmlDocument siteToXml(String response) {
     String cleanResponse = _extractContent(response);
     return xml.parse(cleanResponse);
   }
