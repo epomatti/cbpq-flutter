@@ -2,18 +2,12 @@ import 'package:cbpq/cbpq.dart';
 import 'package:cbpq/commons/app_bar.dart';
 import 'package:flutter/material.dart';
 
-class ConsultaCadastroResult extends StatefulWidget {
-  ConsultaCadastroResult({Key key, @required this.cbpq}) : super(key: key);
+class ConsultaCadastroResult extends StatelessWidget {
 
-  final CBPQ cbpq;
+  final CBPQ _cbpq;
 
-  @override
-  _ConsultaCadastroResultState createState() => _ConsultaCadastroResultState();
-}
-
-class _ConsultaCadastroResultState extends State<ConsultaCadastroResult> {
-  CBPQ _cbpq;
-
+  const ConsultaCadastroResult(this._cbpq);
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

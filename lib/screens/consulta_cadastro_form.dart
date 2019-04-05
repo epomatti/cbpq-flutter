@@ -23,26 +23,22 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
   }
 
   _submit(BuildContext context) {
-    // setState(() {
-    //   _loading = true;
-    // });
-    print('a');
+    setState(() {
+      _loading = true;
+    });
 
-    try {
-
-    } catch (e) {
-    }
-
+    // Todo: Tratar exceção
     Api().call(_documento).then((cbpq) {
       setState(() {
         _loading = false;
       });
+      print(cbpq.atleta);
       return cbpq;
     }).then((cbpq) {
       Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => ConsultaCadastroResult(cbpq: cbpq)),
+            builder: (context) => ConsultaCadastroResult(cbpq)),
       );
     });
   }
