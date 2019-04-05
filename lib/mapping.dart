@@ -4,27 +4,41 @@ import 'package:xml/xml.dart';
 class Mapping {
   CBPQ map(XmlDocument xml) {
     CBPQ cbpq = CBPQ();
-    //print(xml.toXmlString(pretty: true, indent: '\t'));
-    print(xml.children[1].children[15].children[1]);
-    // XmlNode dados = xml.children
-    //     .elementAt(1)
-    //     .children
-    //     .elementAt(0)
-    //     .children
-    //     .elementAt(0);
+    var root = xml.children[1].children[15];
+    // Data
+    var dataRoot = root.children[1];
+    var div = dataRoot.children;
+    cbpq.status = _getValue1(div[1]);
+    cbpq.cbpq = _getValue2(div[3]);
+    cbpq.categoria = _getValue2(div[5]);
+    cbpq.atleta = _getValue2(div[7]);
+    cbpq.clube = _getValue2(div[9]);
+    cbpq.federacao = _getValue2(div[11]);
+    cbpq.habilitacao = _getValue2(div[13]);
+    cbpq.filiacao = _getValue2(div[15]);
+    cbpq.validade = _getValue1(div[17]);
 
-    //cbpq.status = _getValue(dados.children.elementAt(0));
-    //print(cbpq);
+    // Img
+    var imgRoot = root.children[3];
+    String imgPath =
+        imgRoot.children[1].children[1].children[1].attributes[0].value;
+    cbpq.foto = 'http:$imgPath';
+
+    // Emissão
+    cbpq.emissao = xml
+        .children[1].children[17].children[3].children[1].children[2]
+        .toString()
+        .trim();
+
     return cbpq;
   }
 
-  String _getValue(XmlNode node) {
-    return node.children
-        .elementAt(1)
-        .children
-        .elementAt(0)
-        .children
-        .elementAt(0)
-        .text;
+  String _getValue1(XmlNode node) {
+    return node.children[1].children[3].children[1].children[0].children[0]
+        .toString();
+  }
+
+  String _getValue2(XmlNode node) {
+    return node.children[1].children[3].children[1].children[0].toString();
   }
 }
