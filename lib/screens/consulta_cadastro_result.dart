@@ -73,21 +73,22 @@ class ConsultaCadastroResult extends StatelessWidget {
     }
   }
 
-  Color validadeColor() {
+  Color validadeColor(context) {
     DateTime validade = DateFormat('d/M/yyyy').parse(cbpq.validade);
     DateTime now = DateTime.now();
     now = DateTime(now.year, now.month, now.day);
-    DateTime warningDate = DateTime(validade.year, validade.month - 1, validade.day);
+    DateTime warningDate =
+        DateTime(validade.year, validade.month - 1, validade.day);
     if (now.isAfter(validade)) {
       return Colors.red;
     } else if (now.isAfter(warningDate)) {
-      return Colors.yellow;
+      return Colors.orange[400];
     } else {
-      return Colors.green;
+      return Theme.of(context).textTheme.body1.color;
     }
   }
 
-  Widget buildInfoList() {
+  Widget buildInfoList(context) {
     return Column(
       children: <Widget>[
         Item(name: 'Atleta', value: cbpq.atleta),
@@ -112,7 +113,7 @@ class ConsultaCadastroResult extends StatelessWidget {
         Item(
           name: 'Validade',
           value: cbpq.validade,
-          textColor: validadeColor(),
+          textColor: validadeColor(context),
           fontWeight: FontWeight.bold,
         ),
         Item(name: 'Emissão', value: cbpq.emissao),
@@ -146,7 +147,7 @@ class ConsultaCadastroResult extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 30),
-              child: buildInfoList(),
+              child: buildInfoList(context),
             )
           ],
         ),
