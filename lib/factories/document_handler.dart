@@ -1,19 +1,27 @@
+import 'package:cbpq/cbpq.dart';
 import 'package:cpf_cnpj_validator/cpf_validator.dart';
+import 'package:cbpq/api.dart';
 
 abstract class DocumentHandler {
   final String documentName;
+  final String hint;
 
-  const DocumentHandler(this.documentName);
+  const DocumentHandler(
+    this.documentName,
+    this.hint,
+  );
 
   bool validate(String document);
 
   String format(String document);
+
+  Future<CBPQ> consultar(String document);
 }
 
 enum DocumentType { cpf, cbpq }
 
 class CpfHandler extends DocumentHandler {
-  CpfHandler() : super('CPF');
+  CpfHandler() : super('CPF', '___.___.___-__');
 
   @override
   bool validate(String document) {
@@ -24,10 +32,15 @@ class CpfHandler extends DocumentHandler {
   String format(String document) {
     return CPFValidator.format(document);
   }
+
+  @override
+  Future<CBPQ> consultar(String document) {
+    return consultarCpf(document);
+  }
 }
 
 class CbpqHandler extends DocumentHandler {
-  CbpqHandler() : super('CBPQ');
+  CbpqHandler() : super('CBPQ', '. . . . . .');
   @override
   bool validate(String document) {
     return document.length > 0 && int.tryParse(document) != null;
@@ -36,5 +49,10 @@ class CbpqHandler extends DocumentHandler {
   @override
   String format(String document) {
     return document;
+  }
+
+  @override
+  Future<CBPQ> consultar(String document) {
+    return consultarCbpq(document);
   }
 }

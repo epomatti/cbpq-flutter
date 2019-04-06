@@ -13,6 +13,7 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
   bool loading;
   String errorMessage;
   bool isButtonDisabled;
+  String hint;
   DocumentType docType;
   DocumentHandler cpfHandler = CpfHandler();
   DocumentHandler cbpqHandler = CbpqHandler();
@@ -23,9 +24,10 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
     loading = false;
     isButtonDisabled = true;
     docType = DocumentType.cpf;
+    hint = getDocHandler().hint;
   }
 
-  getDocHandler() {
+  DocumentHandler getDocHandler() {
     if (docType == DocumentType.cpf) {
       return cpfHandler;
     } else {
@@ -55,11 +57,10 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
       loading = true;
     });
     // Todo: Tratar exceção
-    Api().call(documento).then((cbpq) {
+    getDocHandler().consultar(documento).then((cbpq) {
       setState(() {
         loading = false;
       });
-      print(cbpq.atleta);
       return cbpq;
     }).then((cbpq) {
       Navigator.push(
@@ -74,6 +75,7 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
   void changeDocumentType(DocumentType docType) {
     setState(() {
       this.docType = docType;
+      this.hint = getDocHandler().hint;
     });
   }
 
@@ -114,6 +116,7 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
         textAlign: TextAlign.center,
         keyboardType: TextInputType.number,
         decoration: InputDecoration(
+          hintText: hint,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.all(
               Radius.circular(5),
