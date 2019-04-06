@@ -8,17 +8,21 @@ class ConsultaCadastroForm extends StatefulWidget {
   State<StatefulWidget> createState() => _ConsultaCadastroState();
 }
 
+enum TipoDocumento { cpf, cbpq }
+
 class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
   String documento;
   bool loading;
   String errorMessage;
   bool isButtonDisabled;
+  TipoDocumento tipoDocumento;
 
   @override
   void initState() {
     super.initState();
     loading = false;
     isButtonDisabled = true;
+    tipoDocumento = TipoDocumento.cpf;
   }
 
   onChange(String text) {
@@ -59,6 +63,34 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
     });
   }
 
+  void handleTipoDocumentoChanged(TipoDocumento value) {
+    setState(() {
+      tipoDocumento = value;
+    });
+  }
+
+  Widget buildButtonBar() {
+    return Center(
+      child: new ButtonBar(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          new RaisedButton(
+            child: new Text('CPF'),
+            onPressed: () {
+              handleTipoDocumentoChanged(TipoDocumento.cpf);
+            },
+          ),
+          new RaisedButton(
+            child: new Text('CBPQ'),
+            onPressed: () {
+              handleTipoDocumentoChanged(TipoDocumento.cbpq);
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget buildTextField() {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 30.0),
@@ -81,7 +113,7 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
     );
   }
 
-  RaisedButton buildSubmitButton() {
+  Widget buildSubmitButton() {
     return RaisedButton(
       onPressed: isButtonDisabled ? null : () => submit(context),
       padding: EdgeInsets.symmetric(
@@ -91,6 +123,9 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
       child: Text(
         'Consultar',
         style: Theme.of(context).textTheme.display1,
+      ),
+      shape: new RoundedRectangleBorder(
+        borderRadius: new BorderRadius.circular(5.0),
       ),
     );
   }
@@ -107,10 +142,7 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(
-                'Número da CBPQ',
-                style: Theme.of(context).textTheme.display1,
-              ),
+              buildButtonBar(),
               SizedBox(
                 height: 16.0,
               ),
