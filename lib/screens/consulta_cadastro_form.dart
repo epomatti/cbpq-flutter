@@ -60,7 +60,6 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
   }
 
   onError(error) {
-    
     //debugPrint(error);
     //print(error);
     setState(() {
@@ -146,6 +145,7 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
       onChanged: (String text) {
         onChange(text);
       },
+      autofocus: true,
       textAlign: TextAlign.center,
       keyboardType: TextInputType.number,
       decoration: InputDecoration(
@@ -190,7 +190,7 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
         ),
         body: Center(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 50),
+            padding: EdgeInsets.only(right: 50, left: 50),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,

@@ -21,7 +21,7 @@ abstract class DocumentHandler {
 enum DocumentType { cpf, cbpq }
 
 class CpfHandler extends DocumentHandler {
-  CpfHandler() : super('CPF', '___.___.___-__');
+  CpfHandler() : super('CPF', '');
 
   @override
   bool validate(String document) {
@@ -40,7 +40,7 @@ class CpfHandler extends DocumentHandler {
 }
 
 class CbpqHandler extends DocumentHandler {
-  CbpqHandler() : super('CBPQ', '. . . . . .');
+  CbpqHandler() : super('CBPQ', '');
   @override
   bool validate(String document) {
     return document.length > 0 && int.tryParse(document) != null;
