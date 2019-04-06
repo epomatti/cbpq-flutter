@@ -1,3 +1,4 @@
+import 'package:cbpq/commons/app_bar.dart';
 import 'package:cbpq/factories/document_handler.dart';
 import 'package:cbpq/screens/consulta_cadastro_result.dart';
 import 'package:flutter/material.dart';
@@ -167,6 +168,9 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
       );
     } else {
       return Scaffold(
+        appBar: DefaultAppBar(
+          titleText: 'Consulta Licença',
+        ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
