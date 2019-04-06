@@ -42,7 +42,6 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
     setState(() {
       loading = true;
     });
-
     // Todo: Tratar exceção
     Api().call(documento).then((cbpq) {
       setState(() {
@@ -60,16 +59,24 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
     });
   }
 
-  TextField buildTextField() {
-    return TextField(
-      style: Theme.of(context).textTheme.display1,
-      onChanged: (String text) {
-        onChange(text);
-      },
-      keyboardType: TextInputType.number,
-      decoration: InputDecoration(
-        errorText: errorMessage != null ? errorMessage : null,
-        hintText: 'Número da CBPQ',
+  Widget buildTextField() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 30.0),
+      child: TextField(
+        style: Theme.of(context).textTheme.display1,
+        onChanged: (String text) {
+          onChange(text);
+        },
+        textAlign: TextAlign.center,
+        keyboardType: TextInputType.number,
+        decoration: InputDecoration(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(5),
+            ),
+          ),
+          errorText: errorMessage != null ? errorMessage : null,
+        ),
       ),
     );
   }
@@ -77,7 +84,14 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
   RaisedButton buildSubmitButton() {
     return RaisedButton(
       onPressed: isButtonDisabled ? null : () => submit(context),
-      child: Text('Submit'),
+      padding: EdgeInsets.symmetric(
+        horizontal: 50.0,
+        vertical: 20.0,
+      ),
+      child: Text(
+        'Consultar',
+        style: Theme.of(context).textTheme.display1,
+      ),
     );
   }
 
@@ -89,14 +103,21 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
       );
     } else {
       return Scaffold(
-        appBar: DefaultAppBar(
-          titleText: 'Consulta Cadastro',
-        ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              Text(
+                'Número da CBPQ',
+                style: Theme.of(context).textTheme.display1,
+              ),
+              SizedBox(
+                height: 16.0,
+              ),
               buildTextField(),
+              SizedBox(
+                height: 16.0,
+              ),
               buildSubmitButton(),
             ],
           ),
