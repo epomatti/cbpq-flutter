@@ -61,7 +61,6 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
 
   onError(error) {
     //debugPrint(error);
-    //print(error);
     setState(() {
       loading = false;
     });

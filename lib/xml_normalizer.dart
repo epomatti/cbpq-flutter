@@ -1,21 +1,17 @@
-import 'package:xml/xml.dart' as xml;
-
 class XmlNormalizer {
-  xml.XmlDocument normalize(String response) {
-    String cleanResponse = _extractContent(response);
-    return xml.parse(cleanResponse);
-  }
+  String normalize(String response) {
 
-  _extractContent(String response) {
+    String clean = response;
+
     // extract content
     String start = "<!-- content 7 -->";
-    int startIndex = response.indexOf(start);
+    int startIndex = clean.indexOf(start);
     startIndex = startIndex + start.length;
-    int endIndex = response.lastIndexOf("<!-- side right -->");
-    response = response.substring(startIndex, endIndex);
+    int endIndex = clean.lastIndexOf("<!-- side right -->");
+    clean = clean.substring(startIndex, endIndex);
 
     // Replaces
-    response = response
+    clean = clean
         .replaceAll("\r", "")
         .replaceAll("\n", "")
         .replaceAll("<br>", "")
@@ -23,13 +19,14 @@ class XmlNormalizer {
         .replaceAll("&ccedil;", "ç")
         .replaceAll("&atilde;", "ã")
         .replaceAll("checked", "")
-        .replaceAll("color=black", "");
+        .replaceAll(" color=black", "")
+        .replaceAll(" color=red", "");
+
 
     // Appends
     String img = "class=\"img-thumbnail cbpq-consulta-img\">";
-    response = response.replaceFirst(img, img + "</img>");
+    clean = clean.replaceFirst(img, img + "</img>");
 
-    return response;
+    return clean;
   }
-
 }
