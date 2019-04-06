@@ -64,7 +64,7 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
     setState(() {
       loading = true;
     });
-    // TODO: Tratar exceção
+    // TODO: Tratar exceções & falhas de conexão
     getDocHandler().consultar(documento).then((cbpq) {
       setState(() {
         loading = false;
@@ -175,7 +175,7 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
     } else {
       return Scaffold(
         appBar: DefaultAppBar(
-          titleText: 'Consultar Licença',
+          titleText: 'Licença',
         ),
         body: Center(
           child: Padding(
