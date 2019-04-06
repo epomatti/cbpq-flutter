@@ -1,7 +1,6 @@
 import 'package:cbpq/factories/document_handler.dart';
 import 'package:cbpq/screens/consulta_cadastro_result.dart';
 import 'package:flutter/material.dart';
-import 'package:cbpq/api.dart';
 
 class ConsultaCadastroForm extends StatefulWidget {
   @override
@@ -79,27 +78,42 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
     });
   }
 
+  Widget buildButtonForBar(
+    String text,
+    DocumentType doctype,
+    DocumentType doctypeCompare,
+  ) {
+    bool isNotSelected = docType == doctypeCompare;
+    return RaisedButton(
+      child: new Text(
+        text,
+        style: TextStyle(fontSize: 20),
+      ),
+      padding: EdgeInsets.symmetric(
+        horizontal: 40.0,
+        vertical: 15.0,
+      ),
+      shape: new RoundedRectangleBorder(
+        borderRadius: new BorderRadius.circular(5.0),
+        side: isNotSelected
+            ? BorderSide(style: BorderStyle.none)
+            : BorderSide(color: Colors.blue, width: 2.0),
+      ),
+      onPressed: isNotSelected
+          ? () {
+              changeDocumentType(doctype);
+            }
+          : null,
+    );
+  }
+
   Widget buildButtonBar() {
     return Center(
       child: new ButtonBar(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          new RaisedButton(
-            child: new Text('CPF'),
-            onPressed: docType == DocumentType.cbpq
-                ? () {
-                    changeDocumentType(DocumentType.cpf);
-                  }
-                : null,
-          ),
-          new RaisedButton(
-            child: new Text('CBPQ'),
-            onPressed: docType == DocumentType.cpf
-                ? () {
-                    changeDocumentType(DocumentType.cbpq);
-                  }
-                : null,
-          ),
+          buildButtonForBar('CPF', DocumentType.cpf, DocumentType.cbpq),
+          buildButtonForBar('CBPQ', DocumentType.cbpq, DocumentType.cpf),
         ],
       ),
     );
@@ -157,13 +171,14 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              buildButtonBar(),
-              SizedBox(
-                height: 16.0,
+              Text(
+                'Documento para consulta:',
+                style: TextStyle(fontSize: 24),
               ),
+              buildButtonBar(),
               buildTextField(),
               SizedBox(
-                height: 16.0,
+                height: 30.0,
               ),
               buildSubmitButton(),
             ],
