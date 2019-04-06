@@ -25,20 +25,18 @@ class Item extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 3),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
-            width: 130,
-            height: 30,
+            width: 120,
             child: Text(
-              '$name: ',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+            '$name: ',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
             ),
-          ),
-          Container(
-            height: 30,
+          ),),
+          Flexible(
             child: Text(
               value,
               style: TextStyle(
