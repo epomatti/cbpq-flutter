@@ -1,4 +1,4 @@
-package com.example.cbpq;
+package br.com.cbpq;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;
