@@ -1,4 +1,5 @@
 class CBPQ {
+  // 'REGULAR' 'INATIVO'
   String status = '';
   String cbpq = '';
   String categoria = '';
