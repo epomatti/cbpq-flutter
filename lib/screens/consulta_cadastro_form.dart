@@ -38,11 +38,19 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
   onChange(String text) {
     int value = int.tryParse(text);
     if (value != null) {
-      setState(() {
-        documento = text;
-        errorMessage = null;
-        isButtonDisabled = false;
+      if (value > 0) {
+        setState(() {
+          documento = text;
+          errorMessage = null;
+          isButtonDisabled = false;
+        });
+      } else {
+        setState(() {
+        errorMessage =
+            text.length > 0 ? 'Valor inválido.' : null;
+        isButtonDisabled = true;
       });
+      }
     } else {
       setState(() {
         errorMessage =
