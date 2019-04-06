@@ -88,11 +88,11 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
     return RaisedButton(
       child: new Text(
         text,
-        style: TextStyle(fontSize: 20),
+        style: TextStyle(fontSize: 18),
       ),
       padding: EdgeInsets.symmetric(
-        horizontal: 40.0,
-        vertical: 15.0,
+        horizontal: 30.0,
+        vertical: 10.0,
       ),
       shape: new RoundedRectangleBorder(
         borderRadius: new BorderRadius.circular(5.0),
@@ -109,36 +109,30 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
   }
 
   Widget buildButtonBar() {
-    return Center(
-      child: new ButtonBar(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          buildButtonForBar('CPF', DocumentType.cpf, DocumentType.cbpq),
-          buildButtonForBar('CBPQ', DocumentType.cbpq, DocumentType.cpf),
-        ],
-      ),
+    return Row(
+      children: <Widget>[
+        buildButtonForBar('CPF', DocumentType.cpf, DocumentType.cbpq),
+        buildButtonForBar('CBPQ', DocumentType.cbpq, DocumentType.cpf),
+      ],
     );
   }
 
   Widget buildTextField() {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30.0),
-      child: TextField(
-        style: Theme.of(context).textTheme.display1,
-        onChanged: (String text) {
-          onChange(text);
-        },
-        textAlign: TextAlign.center,
-        keyboardType: TextInputType.number,
-        decoration: InputDecoration(
-          hintText: hint,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(5),
-            ),
+    return TextField(
+      style: Theme.of(context).textTheme.display1,
+      onChanged: (String text) {
+        onChange(text);
+      },
+      textAlign: TextAlign.center,
+      keyboardType: TextInputType.number,
+      decoration: InputDecoration(
+        hintText: hint,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(5),
           ),
-          errorText: errorMessage != null ? errorMessage : null,
         ),
+        errorText: errorMessage != null ? errorMessage : null,
       ),
     );
   }
@@ -147,8 +141,8 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
     return RaisedButton(
       onPressed: isButtonDisabled ? null : () => submit(context),
       padding: EdgeInsets.symmetric(
-        horizontal: 50.0,
-        vertical: 20.0,
+        horizontal: 20.0,
+        vertical: 15.0,
       ),
       child: Text(
         'Consultar',
@@ -169,23 +163,26 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
     } else {
       return Scaffold(
         appBar: DefaultAppBar(
-          titleText: 'Consulta Licença',
+          titleText: 'Consultar Licença',
         ),
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                'Documento para consulta:',
-                style: TextStyle(fontSize: 24),
-              ),
-              buildButtonBar(),
-              buildTextField(),
-              SizedBox(
-                height: 30.0,
-              ),
-              buildSubmitButton(),
-            ],
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 50),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                buildButtonBar(),
+                 SizedBox(
+                  height: 15.0,
+                ),
+                buildTextField(),
+                SizedBox(
+                  height: 20.0,
+                ),
+                buildSubmitButton(),
+              ],
+            ),
           ),
         ),
       );
