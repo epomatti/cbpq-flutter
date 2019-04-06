@@ -1,6 +1,6 @@
+import 'package:cbpq/factories/document_handler.dart';
 import 'package:cbpq/screens/consulta_cadastro_result.dart';
 import 'package:flutter/material.dart';
-import 'package:cbpq/commons/app_bar.dart';
 import 'package:cbpq/api.dart';
 
 class ConsultaCadastroForm extends StatefulWidget {
@@ -8,21 +8,29 @@ class ConsultaCadastroForm extends StatefulWidget {
   State<StatefulWidget> createState() => _ConsultaCadastroState();
 }
 
-enum TipoDocumento { cpf, cbpq }
-
 class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
   String documento;
   bool loading;
   String errorMessage;
   bool isButtonDisabled;
-  TipoDocumento tipoDocumento;
+  DocumentType docType;
+  DocumentHandler cpfHandler = CpfHandler();
+  DocumentHandler cbpqHandler = CbpqHandler();
 
   @override
   void initState() {
     super.initState();
     loading = false;
     isButtonDisabled = true;
-    tipoDocumento = TipoDocumento.cpf;
+    docType = DocumentType.cpf;
+  }
+
+  getDocHandler() {
+    if (docType == DocumentType.cpf) {
+      return cpfHandler;
+    } else {
+      return cbpqHandler;
+    }
   }
 
   onChange(String text) {
@@ -63,9 +71,9 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
     });
   }
 
-  void handleTipoDocumentoChanged(TipoDocumento value) {
+  void changeDocumentType(DocumentType docType) {
     setState(() {
-      tipoDocumento = value;
+      this.docType = docType;
     });
   }
 
@@ -76,15 +84,19 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
         children: <Widget>[
           new RaisedButton(
             child: new Text('CPF'),
-            onPressed: () {
-              handleTipoDocumentoChanged(TipoDocumento.cpf);
-            },
+            onPressed: docType == DocumentType.cbpq
+                ? () {
+                    changeDocumentType(DocumentType.cpf);
+                  }
+                : null,
           ),
           new RaisedButton(
             child: new Text('CBPQ'),
-            onPressed: () {
-              handleTipoDocumentoChanged(TipoDocumento.cbpq);
-            },
+            onPressed: docType == DocumentType.cpf
+                ? () {
+                    changeDocumentType(DocumentType.cbpq);
+                  }
+                : null,
           ),
         ],
       ),
