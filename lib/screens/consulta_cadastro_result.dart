@@ -1,6 +1,7 @@
 import 'package:cbpq/cbpq.dart';
 import 'package:cbpq/commons/app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class Item extends StatelessWidget {
   final String name;
@@ -72,6 +73,20 @@ class ConsultaCadastroResult extends StatelessWidget {
     }
   }
 
+  Color validadeColor() {
+    DateTime validade = DateFormat('d/M/yyyy').parse(cbpq.validade);
+    DateTime now = DateTime.now();
+    now = DateTime(now.year, now.month, now.day);
+    DateTime warningDate = DateTime(validade.year, validade.month - 1, validade.day);
+    if (now.isAfter(validade)) {
+      return Colors.red;
+    } else if (now.isAfter(warningDate)) {
+      return Colors.yellow;
+    } else {
+      return Colors.green;
+    }
+  }
+
   Widget buildInfoList() {
     return Column(
       children: <Widget>[
@@ -94,7 +109,12 @@ class ConsultaCadastroResult extends StatelessWidget {
         Item(name: 'Federação', value: cbpq.federacao),
         Item(name: 'Habilitação', value: cbpq.habilitacao),
         Item(name: 'Filiação', value: cbpq.filiacao),
-        Item(name: 'Validade', value: cbpq.validade),
+        Item(
+          name: 'Validade',
+          value: cbpq.validade,
+          textColor: validadeColor(),
+          fontWeight: FontWeight.bold,
+        ),
         Item(name: 'Emissão', value: cbpq.emissao),
       ],
     );

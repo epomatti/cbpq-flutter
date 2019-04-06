@@ -46,10 +46,9 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
         });
       } else {
         setState(() {
-        errorMessage =
-            text.length > 0 ? 'Valor inválido.' : null;
-        isButtonDisabled = true;
-      });
+          errorMessage = text.length > 0 ? 'Valor inválido.' : null;
+          isButtonDisabled = true;
+        });
       }
     } else {
       setState(() {
@@ -58,6 +57,16 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
         isButtonDisabled = true;
       });
     }
+  }
+
+  onError(error) {
+    
+    //debugPrint(error);
+    //print(error);
+    setState(() {
+      loading = false;
+    });
+    //throw error;
   }
 
   submit(BuildContext context) {
@@ -77,6 +86,8 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
           builder: (context) => ConsultaCadastroResult(cbpq),
         ),
       );
+    }).catchError((error) {
+      onError(error);
     });
   }
 
