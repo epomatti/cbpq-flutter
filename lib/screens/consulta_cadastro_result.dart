@@ -30,12 +30,13 @@ class Item extends StatelessWidget {
           Container(
             width: 120,
             child: Text(
-            '$name: ',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
+              '$name: ',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),),
+          ),
           Flexible(
             child: Text(
               value,
@@ -112,7 +113,6 @@ class ConsultaCadastroResult extends StatelessWidget {
           name: 'Validade',
           value: cbpq.validade,
           textColor: validadeColor(context),
-          fontWeight: FontWeight.bold,
         ),
         Item(name: 'Emissão', value: cbpq.emissao),
       ],
