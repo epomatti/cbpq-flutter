@@ -111,8 +111,12 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
   Widget buildButtonBar() {
     return Row(
       children: <Widget>[
-        buildButtonForBar('CPF', DocumentType.cpf, DocumentType.cbpq),
-        buildButtonForBar('CBPQ', DocumentType.cbpq, DocumentType.cpf),
+        Expanded(
+          child: buildButtonForBar('CPF', DocumentType.cpf, DocumentType.cbpq),
+        ),
+        Expanded(
+          child: buildButtonForBar('CBPQ', DocumentType.cbpq, DocumentType.cpf),
+        ),
       ],
     );
   }
@@ -173,7 +177,7 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 buildButtonBar(),
-                 SizedBox(
+                SizedBox(
                   height: 15.0,
                 ),
                 buildTextField(),
