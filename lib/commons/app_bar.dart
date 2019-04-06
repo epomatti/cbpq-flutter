@@ -6,14 +6,8 @@ class DefaultAppBar extends AppBar {
   DefaultAppBar({
     @required this.titleText,
   }) : super(
-          elevation: 0.0,
           title: Text(
-            titleText,
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 30.0,
-            ),
+            titleText
           ),
-          centerTitle: true,
         );
 }

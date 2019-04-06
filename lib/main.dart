@@ -7,10 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Protótipo CBPQ',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      title: 'CBPQ',
       home: ConsultaCadastroForm(),
     );
   }

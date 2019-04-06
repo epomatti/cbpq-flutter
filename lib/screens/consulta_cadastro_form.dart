@@ -64,7 +64,7 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
     setState(() {
       loading = true;
     });
-    // Todo: Tratar exceção
+    // TODO: Tratar exceção
     getDocHandler().consultar(documento).then((cbpq) {
       setState(() {
         loading = false;
