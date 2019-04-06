@@ -117,13 +117,13 @@ class ConsultaCadastroResult extends StatelessWidget {
         Item(name: 'Emissão', value: cbpq.emissao),
       ],
     );
-  }
+  }  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: DefaultAppBar(
-        titleText: 'Licença',
+        titleText: 'Licença CBPQ',
       ),
       body: Center(
         child: ListView(

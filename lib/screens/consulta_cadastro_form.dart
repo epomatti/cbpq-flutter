@@ -186,7 +186,7 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
     } else {
       return Scaffold(
         appBar: DefaultAppBar(
-          titleText: 'Licença',
+          titleText: 'Licença CBPQ',
         ),
         body: Center(
           child: Padding(
