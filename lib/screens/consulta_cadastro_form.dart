@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:cbpq/commons/app_bar.dart';
+import 'package:cbpq/commons/app_menu.dart';
 import 'package:cbpq/factories/document_handler.dart';
 import 'package:cbpq/screens/atleta_nao_encontrado.dart';
 import 'package:cbpq/screens/consulta_cadastro_result.dart';
@@ -204,6 +205,9 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
       return Scaffold(
         appBar: DefaultAppBar(
           titleText: 'Licença CBPQ',
+          actions: <Widget>[
+            Menu(),
+          ],
         ),
         body: Center(
           child: Padding(
