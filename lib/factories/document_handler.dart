@@ -13,6 +13,8 @@ abstract class DocumentHandler {
 
   bool validate(String document);
 
+  bool sumitValidate(String documento);
+
   String format(String document);
 
   Future<CBPQ> consultar(String document);
@@ -26,6 +28,11 @@ class CpfHandler extends DocumentHandler {
   @override
   bool validate(String document) {
     return CPFValidator.isValid(document);
+  }
+
+  @override
+  bool sumitValidate(String document) {
+    return validate(document);
   }
 
   @override
@@ -44,6 +51,11 @@ class CbpqHandler extends DocumentHandler {
   @override
   bool validate(String document) {
     return document.length > 0 && int.tryParse(document) != null;
+  }
+
+  @override
+  bool sumitValidate(String document) {
+    return validate(document);
   }
 
   @override

@@ -69,6 +69,13 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
   }
 
   submit(BuildContext context) {
+    if (getDocHandler().sumitValidate(documento) == false) {
+      setState(() {
+        errorMessage = 'Documento inválido.';
+        isButtonDisabled = true;
+      });
+      return;
+    }
     setState(() {
       loading = true;
     });

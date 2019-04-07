@@ -32,7 +32,7 @@ class Item extends StatelessWidget {
             child: Text(
               '$name: ',
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -41,7 +41,7 @@ class Item extends StatelessWidget {
             child: Text(
               value,
               style: TextStyle(
-                fontSize: fontSize != null ? fontSize : 20,
+                fontSize: fontSize != null ? fontSize : 18,
                 color: textColor,
                 fontWeight: fontWeight,
                 shadows: <Shadow>[
@@ -144,7 +144,7 @@ class ConsultaCadastroResult extends StatelessWidget {
               height: 20.0,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30),
+              padding: EdgeInsets.symmetric(horizontal: 50),
               child: buildInfoList(context),
             )
           ],
