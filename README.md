@@ -4,7 +4,7 @@ A simple application for skydivers in Brazil to check their license status.
 
 ## The motivation
 
-The [official website] (www.cbpq.org.br) is not prepared for mobile devices and there is no official app for this service.
+The [official website](www.cbpq.org.br) is not prepared for mobile devices and there is no official app for this service.
 
 It is common to see athletes in the middle of the dropzone strugging to access the main website to check license information, and dropzone managers have no quick access to validate an athelet status.
 
