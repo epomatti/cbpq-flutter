@@ -165,6 +165,7 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
           ),
         ),
         errorText: errorMessage != null ? errorMessage : null,
+        errorStyle: TextStyle(fontSize: 16),
       ),
     );
   }
