@@ -161,7 +161,7 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
       onChanged: (String text) {
         onChange(text);
       },
-      autofocus: true,
+      autofocus: false,
       textAlign: TextAlign.center,
       keyboardType: TextInputType.number,
       decoration: InputDecoration(
