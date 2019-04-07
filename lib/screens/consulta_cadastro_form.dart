@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cbpq/commons/app_bar.dart';
 import 'package:cbpq/factories/document_handler.dart';
 import 'package:cbpq/screens/atleta_nao_encontrado.dart';
@@ -61,11 +63,17 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
   }
 
   onError(error) {
-    //debugPrint(error);
-    setState(() {
-      loading = false;
-    });
-    //throw error;
+    if (error.runtimeType == SocketException) {
+      setState(() {
+        errorMessage = 'Falha de conexão.';
+        loading = false;
+      });
+    } else {
+      setState(() {
+        errorMessage = 'Falha inesperada.';
+        loading = false;
+      });
+    }
   }
 
   submit(BuildContext context) {
@@ -79,7 +87,6 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
     setState(() {
       loading = true;
     });
-    // TODO: Tratar exceções & falhas de conexão
     getDocHandler().consultar(documento).then((cbpq) {
       setState(() {
         loading = false;

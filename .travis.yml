@@ -1,3 +1,11 @@
+env:
+  - SDK_VERSION=1.2.1
+  - SDK_FILE=fluter_sdk.tar.gz
+before_install:
+  - sudo apt-get install -y libstdc++
+  - wget --output=${SDK_FILE} https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v${SDK_VERSION}-stable.tar.xz
+  - tar -xvzf ${SDK_FILE}
+  - export 
 language: dart
 dart:
 - stable
