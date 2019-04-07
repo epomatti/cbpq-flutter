@@ -28,11 +28,11 @@ class Item extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
-            width: 120,
+            width: 100,
             child: Text(
               '$name: ',
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -41,7 +41,7 @@ class Item extends StatelessWidget {
             child: Text(
               value,
               style: TextStyle(
-                fontSize: fontSize != null ? fontSize : 18,
+                fontSize: fontSize != null ? fontSize : 16,
                 color: textColor,
                 fontWeight: fontWeight,
                 shadows: <Shadow>[
@@ -101,7 +101,7 @@ class ConsultaCadastroResult extends StatelessWidget {
             blurRadius: 0.1,
             offset: Offset(0.5, 0.5),
           ),
-          fontSize: 22,
+          fontSize: 17,
         ),
         Item(name: 'CBPQ', value: cbpq.cbpq),
         Item(name: 'Categoria', value: cbpq.categoria),
@@ -117,13 +117,22 @@ class ConsultaCadastroResult extends StatelessWidget {
         Item(name: 'Emissão', value: cbpq.emissao),
       ],
     );
-  }  
+  }
+
+  share() {}
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: DefaultAppBar(
         titleText: 'Licença CBPQ',
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.share),
+            tooltip: 'Compartilhar',
+            onPressed: null,
+          )
+        ],
       ),
       body: Center(
         child: ListView(
@@ -144,7 +153,7 @@ class ConsultaCadastroResult extends StatelessWidget {
               height: 20.0,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 50),
+              padding: EdgeInsets.symmetric(horizontal: 30),
               child: buildInfoList(context),
             )
           ],
