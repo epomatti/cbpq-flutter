@@ -6,6 +6,11 @@ class Mapping {
     CBPQ cbpq = CBPQ();
     var root = xml.children[1].children[15];
     // Data
+
+    if (root.children[0].toString() == 'ATLETA NÃO ENCONTRADO') {
+      return null;
+    }
+
     var dataRoot = root.children[1];
     var div = dataRoot.children;
     cbpq.status = _getValue1(div[1]);

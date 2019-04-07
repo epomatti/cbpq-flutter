@@ -1,5 +1,6 @@
 import 'package:cbpq/commons/app_bar.dart';
 import 'package:cbpq/factories/document_handler.dart';
+import 'package:cbpq/screens/atleta_nao_encontrado.dart';
 import 'package:cbpq/screens/consulta_cadastro_result.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +24,7 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
     super.initState();
     loading = false;
     isButtonDisabled = true;
-    docType = DocumentType.cpf;
+    docType = DocumentType.cbpq;
     hint = getDocHandler().hint;
   }
 
@@ -81,7 +82,9 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => ConsultaCadastroResult(cbpq),
+          builder: (context) => cbpq != null
+              ? ConsultaCadastroResult(cbpq)
+              : AtletaNaoEncontrado(),
         ),
       );
     }).catchError((error) {
@@ -129,10 +132,10 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
     return Row(
       children: <Widget>[
         Expanded(
-          child: buildButtonForBar('CPF', DocumentType.cpf, DocumentType.cbpq),
+          child: buildButtonForBar('CBPQ', DocumentType.cbpq, DocumentType.cpf),
         ),
         Expanded(
-          child: buildButtonForBar('CBPQ', DocumentType.cbpq, DocumentType.cpf),
+          child: buildButtonForBar('CPF', DocumentType.cpf, DocumentType.cbpq),
         ),
       ],
     );

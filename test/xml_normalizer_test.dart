@@ -7,7 +7,7 @@ import 'package:cbpq/cbpq.dart';
 import 'package:xml/xml.dart' as xml;
 
 void main() {
-  consultarCbpq("1");
+  consultarCbpq("123456");
 }
 
 Future<CBPQ> consultarCpf(String cpf) {
@@ -23,7 +23,6 @@ Future<CBPQ> consultarCbpq(String cbpq) {
 Future<CBPQ> _read(String url) {
   return http.read(url).then((text) {
     String xmlClean = XmlNormalizer().normalize(text);
-    print(xmlClean);
     XmlDocument xmlDocument = xml.parse(xmlClean);
     return Mapping().map(xmlDocument);
   });
