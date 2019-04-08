@@ -23,7 +23,6 @@ dependencies:
   xml: ^3.3.0
   cpf_cnpj_validator: ^1.0.5
   intl: ^0.15.8
-  flutter_html_view: ^0.5.11
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

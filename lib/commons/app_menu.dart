@@ -21,10 +21,6 @@ class _MenuState extends State<Menu> {
       },
       itemBuilder: (BuildContext context) => <PopupMenuEntry<Widget>>[
             const PopupMenuItem<Widget>(
-              value: Contato(),
-              child: Text('Contato'),
-            ),
-            const PopupMenuItem<Widget>(
               value: BuyMeaCoffee(),
               child: Text('Informações'),
             ),
