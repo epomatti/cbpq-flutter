@@ -1,9 +1,10 @@
 import 'package:cbpq/commons/app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class BuyMeaCoffee extends StatelessWidget {
   const BuyMeaCoffee();
-  final String url = 'https://www.buymeacoffee.com/29ricNQ';
+  final String url = 'https://cbpq-58c95.firebaseapp.com/buymeacoffee.html';
 
   @override
   Widget build(BuildContext context) {
@@ -12,19 +13,9 @@ class BuyMeaCoffee extends StatelessWidget {
         titleText: 'Informações',
       ),
       body: Center(
-        child: ListView(
-          children: <Widget>[
-            Text(
-                'Olá! Meu nome é Evandro e sou o desenvolvedor desta aplicação. Agradeço por utilizá-la!'),
-            Text(
-                'E se gostou mesmo, fiquei à voltade e clique no link abaixo para me pagar um café e apoiar o meu trabalho =)'),
-            IconButton(
-              icon: Icon(Icons.favorite),
-              iconSize: 100,
-              tooltip: 'Compartilhar',
-              onPressed: null,
-            )
-          ],
+        child: WebView(
+          initialUrl: url,
+          javascriptMode: JavascriptMode.unrestricted,
         ),
       ),
     );
