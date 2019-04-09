@@ -91,6 +91,7 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
     getDocHandler().consultar(documento).then((cbpq) {
       setState(() {
         loading = false;
+        documento = null;
       });
       return cbpq;
     }).then((cbpq) {
