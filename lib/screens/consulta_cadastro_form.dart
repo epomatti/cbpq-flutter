@@ -39,6 +39,7 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
     }
   }
 
+  // TODO: Ao digitar 0 para CPF não deve apresentar erro
   onChange(String text) {
     int value = int.tryParse(text);
     if (value != null) {

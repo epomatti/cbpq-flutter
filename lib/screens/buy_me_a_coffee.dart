@@ -24,10 +24,30 @@ class BuyMeaCoffee extends StatelessWidget {
       ),
       body: Center(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 50),
+          padding: EdgeInsets.symmetric(horizontal: 30),
           child: Column(
             children: <Widget>[
-              Text('Olá, meu nome é Evandro e '),
+              SizedBox(width: 20, height: 20),
+              Text(
+                'Sobre o aplicativo',
+                style: Theme.of(context).textTheme.title,
+              ),
+              SizedBox(width: 10, height: 10),
+              Text(
+                'Os dados do aplicativo são obtidos online e diretamente do site oficial da Federação: www.cpbq.org.br. Novas funcionalidades serão adicionadas em breve. Envie sugestões, e compartilhe!',
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(width: 20, height: 20),
+              Text(
+                'Sobre o desenvolvedor',
+                style: Theme.of(context).textTheme.title,
+              ),
+              SizedBox(width: 10, height: 10),
+              Text(
+                'Evandro Pomatti é desenvolvedor de sistemas e paraquedista de Blumenau, Santa Catarina. Feito por paraquedistas, para paraquedistas ;)',
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(width: 10, height: 10),
               Container(
                 width: 150,
                 height: 150,
@@ -35,28 +55,34 @@ class BuyMeaCoffee extends StatelessWidget {
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     color: Colors.black,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
+                    ),
+                    boxShadow: <BoxShadow>[
+                      BoxShadow(
+                        color: Colors.grey,
+                        offset: Offset(1, 1),
+                      )
+                    ],
                   ),
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    'Contato: ',
-                  ),
-                  InkWell(
-                    child: Text(
-                      email,
-                      style: TextStyle(
-                        color: Colors.blue,
-                      ),
-                    ),
-                    highlightColor: Colors.yellow,
-                    onTap: () => launch('mailto:$email?subject=Contato'),
-                  ),
-                ],
+              SizedBox(width: 20, height: 20),
+              Text(
+                'Contato do desenvolvedor: ',
               ),
-              Text('Gostou do app? Me pague um café 😀'),
+              InkWell(
+                child: Text(
+                  email,
+                  style: TextStyle(
+                    color: Colors.blue,
+                  ),
+                ),
+                highlightColor: Colors.yellow,
+                onTap: () => launch('mailto:$email?subject=Contato'),
+              ),
+              SizedBox(width: 20, height: 20),
+              Text('Gostou do app? Me pague um café ☕'),
               Container(
                 child: FlatButton(
                   onPressed: () {

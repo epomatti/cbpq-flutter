@@ -126,13 +126,13 @@ class ConsultaCadastroResult extends StatelessWidget {
     return Scaffold(
       appBar: DefaultAppBar(
         titleText: 'Licença CBPQ',
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.share),
-            tooltip: 'Compartilhar',
-            onPressed: null,
-          )
-        ],
+        // actions: <Widget>[
+        //   IconButton(
+        //     icon: Icon(Icons.share),
+        //     tooltip: 'Compartilhar',
+        //     onPressed: null,
+        //   )
+        // ],
       ),
       body: Center(
         child: ListView(

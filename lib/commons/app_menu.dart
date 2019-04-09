@@ -1,5 +1,4 @@
 import 'package:cbpq/screens/buy_me_a_coffee.dart';
-import 'package:cbpq/screens/contato.dart';
 import 'package:flutter/material.dart';
 
 class Menu extends StatefulWidget {
