@@ -1,3 +1,4 @@
+import 'package:cbpq/screens/SplashPage.dart';
 import 'package:cbpq/screens/consulta_cadastro_form.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +9,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'CBPQ',
-      home: ConsultaCadastroForm(),
+      //home: ConsultaCadastroForm(),
+      home: new SplashPage(),
+      routes: <String, WidgetBuilder>{
+        '/HomePage': (BuildContext context) => new ConsultaCadastroForm(),
+      },
     );
   }
 }
