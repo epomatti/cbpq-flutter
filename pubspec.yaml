@@ -24,6 +24,7 @@ dependencies:
   cpf_cnpj_validator: ^1.0.5
   intl: ^0.15.8
   url_launcher: ^5.0.2
+  flutter_launcher_icons: ^0.7.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -46,6 +47,11 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+
+flutter_icons:
+  android: "launcher_icon" 
+  ios: false
+  image_path: "assets/icon.png"
 
   # To add assets to your application, add an assets section, like this:
   # assets:
