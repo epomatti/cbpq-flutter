@@ -90,10 +90,11 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
       loading = true;
     });
     getDocHandler().consultar(documento).then((cbpq) {
-      setState(() {
-        loading = false;
-        documento = null;
-      });
+      // setState(() {
+      //   loading = false;
+      //   documento = null;
+      //   isButtonDisabled = true;
+      // });
       return cbpq;
     }).then((cbpq) {
       Navigator.push(
@@ -104,6 +105,12 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
               : AtletaNaoEncontrado(),
         ),
       );
+    }).then((value) {
+      setState(() {
+        loading = false;
+        documento = null;
+        isButtonDisabled = true;
+      });
     }).catchError((error) {
       onError(error);
     });

@@ -24,8 +24,8 @@ class BuyMeaCoffee extends StatelessWidget {
       ),
       body: Center(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30),
-          child: Column(
+          padding: EdgeInsets.symmetric(horizontal: 20),
+          child: ListView(
             children: <Widget>[
               SizedBox(width: 20, height: 20),
               Text(
@@ -34,27 +34,28 @@ class BuyMeaCoffee extends StatelessWidget {
               ),
               SizedBox(width: 10, height: 10),
               Text(
-                'Os dados do aplicativo são obtidos online e diretamente do site oficial da Federação: www.cpbq.org.br. Novas funcionalidades serão adicionadas em breve. Envie sugestões, e compartilhe!',
-                textAlign: TextAlign.center,
+                'Dados obtidos online diretamente do site oficial da Federação (www.cpbq.org.br).',
+                // textAlign: TextAlign.,
               ),
               SizedBox(width: 20, height: 20),
               Text(
-                'Sobre o desenvolvedor',
+                'Desenvolvedor',
                 style: Theme.of(context).textTheme.title,
               ),
               SizedBox(width: 10, height: 10),
               Text(
-                'Evandro Pomatti é desenvolvedor de sistemas e paraquedista de Blumenau, Santa Catarina. Feito por paraquedistas, para paraquedistas ;)',
-                textAlign: TextAlign.center,
+                'Evandro Pomatti é um desenvolvedor de sistemas e paraquedista de Santa Catarina. Feito por paraquedistas, para paraquedistas ;)',
+                // textAlign: TextAlign.center,
               ),
               SizedBox(width: 10, height: 10),
-              Container(
-                width: 150,
+              Center(child:  Container(
+                width: 120,
                 height: 150,
-                //child: Image.asset('assets/dev.png'),
                 child: DecoratedBox(
                   decoration: BoxDecoration(
-                    color: Colors.black,
+                    image: DecorationImage(
+                      image: AssetImage('assets/dev.png'),
+                    ),
                     borderRadius: BorderRadius.all(
                       Radius.circular(10),
                     ),
@@ -66,32 +67,42 @@ class BuyMeaCoffee extends StatelessWidget {
                     ],
                   ),
                 ),
+              ),),
+             
+              SizedBox(width: 20, height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'Contato: ',
+                  ),
+                  InkWell(
+                    child: Text(
+                      email,
+                      style: TextStyle(
+                        color: Colors.blue,
+                      ),
+                    ),
+                    highlightColor: Colors.yellow,
+                    onTap: () => launch('mailto:$email?subject=Contato'),
+                  ),
+                ],
               ),
               SizedBox(width: 20, height: 20),
               Text(
-                'Contato do desenvolvedor: ',
+                'Gostou do app? Me pague um café 😁',
+                textAlign: TextAlign.center,
               ),
-              InkWell(
-                child: Text(
-                  email,
-                  style: TextStyle(
-                    color: Colors.blue,
-                  ),
-                ),
-                highlightColor: Colors.yellow,
-                onTap: () => launch('mailto:$email?subject=Contato'),
-              ),
-              SizedBox(width: 20, height: 20),
-              Text('Gostou do app? Me pague um café ☕'),
               Container(
                 child: FlatButton(
                   onPressed: () {
                     _launchURL();
                   },
-                  child: Image.asset('assets/buymeacoffee.png'),
+                  child: Image.asset(
+                    'assets/buymeacoffee.png',
+                  ),
                 ),
               ),
-              Text(''),
             ],
           ),
         ),
