@@ -9,7 +9,7 @@ class SplashPage extends StatefulWidget {
 
 class SplashPageState extends State<SplashPage> {
   void navigationToNextPage() {
-    Navigator.pushNamed(context, '/HomePage');
+    Navigator.pushReplacementNamed(context, '/HomePage');
   }
 
   startSplashScreenTimer() async {
