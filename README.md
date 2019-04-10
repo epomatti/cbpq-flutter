@@ -12,7 +12,7 @@ Made for skydivers, by skydivers ;)
 
 ## How it works
 
-There is no API provided by , so the app needs to do a little "magic".
+There is no API provided by the official service so the app needs to do a little "magic".
 
 1. The app sends a GET request to the official site "Consulta Licença" URL passing the CPF or CBPQ informed by the user.
 2. The HTML response is then edited to match XML format. The data is then extracted from the now readable XML and displayed to the user.
@@ -22,7 +22,8 @@ The service does not store or uses the athelete's CPF or CBPQ for any other purp
 ## How to install it
 
 1. Install the latest [Flutter SDK](https://flutter.dev/docs/development/tools/sdk/releases)
-2. Connect your device
-3. Run it with `flutter run`
+2. Install dependencies: `flutter packages get`
+3. Connect your device
+4. Run it with `flutter run`
 
 If you have any problems run `flutter doctor` and see if the environment is properly set up.
