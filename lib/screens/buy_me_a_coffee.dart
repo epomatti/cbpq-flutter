@@ -34,7 +34,7 @@ class BuyMeaCoffee extends StatelessWidget {
               ),
               SizedBox(width: 10, height: 10),
               Text(
-                'Dados obtidos online diretamente do site oficial da Federação (www.cpbq.org.br).',
+                'Dados obtidos online diretamente do site oficial da Federação (www.cbpq.org.br).',
                 // textAlign: TextAlign.,
               ),
               SizedBox(width: 20, height: 20),
