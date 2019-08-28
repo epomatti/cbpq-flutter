@@ -1,4 +1,4 @@
-import 'package:cbpq/cbpq.dart';
+import 'package:cbpq/model/cbpq.dart';
 import 'package:xml/xml.dart';
 
 class Mapping {

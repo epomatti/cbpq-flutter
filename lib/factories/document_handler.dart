@@ -1,6 +1,6 @@
-import 'package:cbpq/cbpq.dart';
+import 'package:cbpq/api/api.dart';
+import 'package:cbpq/model/cbpq.dart';
 import 'package:cpf_cnpj_validator/cpf_validator.dart';
-import 'package:cbpq/api.dart';
 
 abstract class DocumentHandler {
   final String documentName;

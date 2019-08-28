@@ -1,5 +1,5 @@
-import 'package:cbpq/cbpq.dart';
 import 'package:cbpq/commons/app_bar.dart';
+import 'package:cbpq/model/cbpq.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 

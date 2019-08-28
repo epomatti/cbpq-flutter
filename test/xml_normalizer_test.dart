@@ -1,9 +1,9 @@
-import 'package:cbpq/url_helper.dart';
+import 'package:cbpq/api/url_helper.dart';
+import 'package:cbpq/model/cbpq.dart';
+import 'package:cbpq/xml/mapping.dart';
+import 'package:cbpq/xml/xml_normalizer.dart';
 import 'package:http/http.dart' as http;
-import 'package:cbpq/xml_normalizer.dart';
 import 'package:xml/xml.dart';
-import 'package:cbpq/mapping.dart';
-import 'package:cbpq/cbpq.dart';
 import 'package:xml/xml.dart' as xml;
 
 void main() {

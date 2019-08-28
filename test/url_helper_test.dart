@@ -1,5 +1,5 @@
+import 'package:cbpq/api/url_helper.dart';
 import "package:test/test.dart";
-import 'package:cbpq/url_helper.dart';
 
 void main() {
   test("URL CPF", () {

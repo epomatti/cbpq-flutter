@@ -1,4 +1,4 @@
-import 'package:cbpq/cbpq.dart';
+import 'package:cbpq/model/cbpq.dart';
 import 'package:cbpq/screens/consulta_cadastro_result.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
