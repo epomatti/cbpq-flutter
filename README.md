@@ -21,9 +21,16 @@ The service does not store or uses the athelete's CPF or CBPQ for any other purp
 
 ## How to install it
 
-1. Install the latest [Flutter SDK](https://flutter.dev/docs/development/tools/sdk/releases)
-2. Install dependencies: `flutter packages get`
-3. Connect your device
-4. Run it with `flutter run`
+Get the [Flutter SDK](https://flutter.dev/docs/get-started/install).
 
-If you have any problems run `flutter doctor` and see if the environment is properly set up.
+Install dependencis:
+
+```
+flutter packages get
+```
+
+Run the app:
+
+```
+flutter run
+```
