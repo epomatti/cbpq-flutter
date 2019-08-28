@@ -30,5 +30,3 @@ There is no API provided by the official service so the app needs to do a little
 
 1. The app sends a GET request to the official site "Consulta Licença" URL passing the CPF or CBPQ informed by the user.
 2. The HTML response is then edited to match XML format. The data is then extracted from the now readable XML and displayed to the user.
-
-The service does not store or uses the athelete's CPF or CBPQ for any other purpose except for the service call. It is safe to use.
