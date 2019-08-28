@@ -4,6 +4,10 @@ A simple application for skydivers in Brazil to check their license status.
 
 ## Getting started
 
+Create `.env` configuration file (copy from `.env.dev`).
+
+Change `/android/key.properties` file with the JKS key.
+
 Install the dependencies:
 
 ```
