@@ -22,6 +22,6 @@ flutter run
 
 ## About
 
-This is app is developed by without costs, in partnership with CBPQ.
+This is app is developed without cost and in partnership with CBPQ.
 
-Made with :heart: for skydivers, by skydivers ;)
+Made for skydivers, by skydivers ;)
