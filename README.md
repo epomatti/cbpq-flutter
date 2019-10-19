@@ -27,6 +27,6 @@ flutter run
 
 ## About
 
-This is app is developed without cost and in partnership with CBPQ.
+This app is developed without cost and in partnership with CBPQ.
 
 Made for skydivers, by skydivers ;)
