@@ -18,6 +18,16 @@ flutter packages get
 flutter run
 ```
 
+## CBPQ API Mock
+
+```
+cd mock
+npm install
+node mock.js
+```
+
+Set URL to `http://localhost:3000`
+
 ## Release
 
 1. Create production `.env` 
