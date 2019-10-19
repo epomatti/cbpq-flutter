@@ -2,23 +2,28 @@
 
 An App for skydivers in Brazil to check their license status.
 
-## Getting started
+## Getting Started
 
 1. Create `.env` 
 
-2. Set JKS path property `storeFile` in `/android/key.properties`
-
-3. Install the dependencies:
+2. Install the dependencies:
 
 ```
 flutter packages get
 ```
 
-4. Run the app:
+3. Run the app:
 
 ```
 flutter run
 ```
+
+## Release
+
+1. Create production `.env` 
+
+2. Set JKS path property `storeFile` in `/android/key.properties`
+
 
 ## About
 
