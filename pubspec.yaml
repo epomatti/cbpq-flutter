@@ -18,9 +18,9 @@ environment:
 
 dependencies:
   test: ^1.5.0
+  mockito: ^4.1.1
   flutter:
     sdk: flutter
-  xml: ^3.5.0
   cpf_cnpj_validator: ^1.0.5
   intl: ^0.16.0
   url_launcher: ^5.2.3

@@ -3,7 +3,7 @@ const app = express()
 
 atleta = {
   status: 'REGULAR',
-  cbpq: 90155,
+  cbpq: '90155',
   categoria: 'A',
   atleta: 'Evandro Pomatti',
   clube: 'Droz Zone 47 Clube Escola Paraquedismo',
@@ -15,7 +15,7 @@ atleta = {
   imagem: 'https://www.cbpq.org.br/site/download/i/foto/90155.jpg'
 }
 
-app.get('/api/atleta', function (req, res) {
+app.get('/api/licenca', function (req, res) {
   const { cbpq, cpf } = req.query
   if (cbpq) {
     if (cbpq === '90155') {
