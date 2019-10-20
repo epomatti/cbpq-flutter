@@ -12,6 +12,8 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
+    - name: print user
+      run: echo $USER
     - name: Install dependencies
       run: flutter pub get
     - name: Run tests
