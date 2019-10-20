@@ -15,6 +15,6 @@ jobs:
     - name: details
       run: flutter doctor -v
     - name: Install dependencies
-      run: sudo ${HOME}/sdks/flutter/bin/flutter pub get
+      run: sudo /home/cirrus/sdks/flutter/bin/flutter pub get
     - name: Run tests
       run: sudo flutter test
