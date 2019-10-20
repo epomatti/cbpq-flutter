@@ -12,9 +12,7 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: sudo
-      run: apt install sudo
     - name: Install dependencies
-      run: sudo -u root flutter pub get
+      run: sudo flutter pub get
     - name: Run tests
-      run: sudo -u root flutter test
+      run: sudo flutter test
