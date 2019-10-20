@@ -1,0 +1,23 @@
+name: Flutter
+
+on:
+  push:
+    branches: 
+      - develop
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    container:
+      image:  cirrusci/flutter
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: env
+      run: sudo cp .env.dev .env
+    - name: Install dependencies
+      run: sudo /home/cirrus/sdks/flutter/bin/flutter pub get
+    - name: Run tests
+      run: sudo /home/cirrus/sdks/flutter/bin/flutter test
