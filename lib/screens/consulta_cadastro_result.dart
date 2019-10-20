@@ -145,7 +145,7 @@ class ConsultaCadastroResult extends StatelessWidget {
                 width: 150,
                 height: 150,
                 child: Image(
-                  image: NetworkImage(cbpq.foto),
+                  image: NetworkImage(cbpq.imagem),
                 ),
               ),
             ),

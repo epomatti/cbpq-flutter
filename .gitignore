@@ -1,5 +1,7 @@
 # App
 .env
+/mock/node_modules/
+/mock/package-lock.json
 
 # Miscellaneous
 *.class

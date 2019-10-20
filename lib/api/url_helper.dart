@@ -1,8 +1,7 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class UrlHelper {
-  static final _baseUrl =
-      DotEnv().env['CBPQ_BASE_URL'] + '/site/filiados/consulta-licenca';
+  static final _baseUrl = DotEnv().env['CBPQ_BASE_URL'] + '/api/licenca';
 
   urlCpf(String cpf) {
     return _buildUrl('cpf', cpf);
