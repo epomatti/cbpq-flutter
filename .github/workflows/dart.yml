@@ -12,9 +12,7 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: details
-      run: flutter doctor -v
     - name: Install dependencies
       run: sudo /home/cirrus/sdks/flutter/bin/flutter pub get
     - name: Run tests
-      run: sudo flutter test
+      run: sudo /home/cirrus/sdks/flutter/bin/flutter
