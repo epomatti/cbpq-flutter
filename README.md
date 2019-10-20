@@ -4,19 +4,22 @@ An App for skydivers in Brazil to check their license status.
 
 ## Getting Started
 
-1. Create `.env` 
-
-2. Install the dependencies:
-
 ```
 flutter packages get
-```
-
-3. Run the app:
-
-```
 flutter run
 ```
+
+Don't forget to create the `.env` file.
+
+### Mock
+
+```
+cd mock
+npm install
+node mock.js
+```
+
+When using the local mock set `CBPQ_BASE_URL=http://10.0.2.2:3000` to allow the emulator to connect to it.
 
 ## Release
 
