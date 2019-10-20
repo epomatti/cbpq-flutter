@@ -12,6 +12,8 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
+    - name: details
+      run: flutter doctor -v
     - name: Install dependencies
       run: sudo ${HOME}/sdks/flutter/bin/flutter pub get
     - name: Run tests
