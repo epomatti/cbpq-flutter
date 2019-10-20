@@ -12,6 +12,8 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
+    - name: env
+      run: cp .env.dev .env
     - name: Install dependencies
       run: sudo /home/cirrus/sdks/flutter/bin/flutter pub get
     - name: Run tests
