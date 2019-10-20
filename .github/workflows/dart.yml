@@ -12,13 +12,7 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: print user
-      run: echo $USER
-    - name: print username
-      run: echo $USERNAME          
-    - name: id
-      run: id
     - name: Install dependencies
-      run: flutter pub get
+      run: sudo -u root flutter pub get
     - name: Run tests
-      run: flutter test
+      run: sudo -u root flutter test
