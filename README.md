@@ -7,34 +7,40 @@ An App for skydivers in Brazil to check their license status.
 ## Getting Started
 
 ```
+cp .env.prod .env
 flutter packages get
 flutter run
 ```
 
-Don't forget to create the `.env` file.
-
 ### Mock
 
 ```
+cp .env.mock .env
 cd mock
 npm install
 node mock.js
 ```
 
-When using the local mock set `CBPQ_BASE_URL=http://10.0.2.2:3000` to allow the emulator to connect to it.
-
 ## Release Bundle
 
-Steps to create the AppBundle
+Steps to create the AppBundle:
 
-1. Create production `.env` 
+1. Clone the repo
 
-2. Copy the uncrypted JKS to `android/app/key.jks`
-
-3. Build the App Bundle:
+2. Create `.env` file:
 
 ```
-flutter build appbundle
+cp .env.prod .env
+```
+
+3. Copy the properties file: `key.properties`
+
+4. Copy the JKS file: `android/app/key.jks`
+
+5. Build the App Bundle:
+
+```
+flutter build appbundle --build-name <build_name> --build-version <build_version>
 ```
 
 ## About
