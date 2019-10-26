@@ -2,7 +2,7 @@
 .env
 mock/node_modules/
 mock/package-lock.json
-secrets/key.jks
+scripts/key.jks
 android/app/key.jks
 
 # Miscellaneous
