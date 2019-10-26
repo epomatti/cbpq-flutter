@@ -16,16 +16,8 @@ jobs:
     steps:
     - uses: actions/checkout@v1    
     - name: Creates .env file
-      run: sudo cp .env.prod .env
+      run: sudo touch .env
     - name: Install dependencies
       run: sudo /home/cirrus/sdks/flutter/bin/flutter pub get    
     - name: Run tests
       run: sudo /home/cirrus/sdks/flutter/bin/flutter test
-    - name: Decrypt large secret
-      run: |
-        sudo mkdir $HOME/secrets
-        sudo gpg --quiet --batch --yes --decrypt --passphrase=${{ secrets.LARGE_SECRET_PASSPHRASE }} \
-        --output $HOME/secrets/key.jks ./.github/secrets/key.jks.gpg
-        sudo mv $HOME/secrets/key.jks ./android/app/
-    - name: Build App Bundle
-      run: sudo /home/cirrus/sdks/flutter/bin/flutter build appbundle
