@@ -2,6 +2,8 @@
 
 An App for skydivers in Brazil to check their license status.
 
+[![Codemagic build status](https://api.codemagic.io/apps/5db4aca125dc3f2949a9e89f/5db4aca125dc3f2949a9e89e/status_badge.svg)](https://codemagic.io/apps/5db4aca125dc3f2949a9e89f/5db4aca125dc3f2949a9e89e/latest_build)
+
 ## Getting Started
 
 ```
