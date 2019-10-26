@@ -1,7 +1,9 @@
 # App
 .env
-/mock/node_modules/
-/mock/package-lock.json
+mock/node_modules/
+mock/package-lock.json
+scripts/key.jks
+android/app/key.jks
 
 # Miscellaneous
 *.class
