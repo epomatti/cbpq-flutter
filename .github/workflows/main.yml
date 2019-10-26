@@ -1,9 +1,6 @@
 name: CBPQ Develop
 
-on:
-  push:
-    branches: 
-      - develop
+on: [push]
 
 jobs:
   build:
@@ -15,8 +12,8 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: env
-      run: sudo cp .env.dev .env
+    - name: Creantes .env file
+      run: sudo cp .env.prod .env
     - name: Install dependencies
       run: sudo /home/cirrus/sdks/flutter/bin/flutter pub get
     - name: Run tests
