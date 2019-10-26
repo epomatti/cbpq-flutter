@@ -16,8 +16,10 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1    
-    - name: Creantes .env file
-      run: sudo cp .env.prod .env
+    - name: Creates .env file
+      run: |
+        whereami
+        sudo cp .env.prod .env
     - name: Install dependencies
       run: sudo /home/cirrus/sdks/flutter/bin/flutter pub get    
     - name: Run tests
