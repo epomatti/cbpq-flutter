@@ -21,12 +21,19 @@ node mock.js
 
 When using the local mock set `CBPQ_BASE_URL=http://10.0.2.2:3000` to allow the emulator to connect to it.
 
-## Release
+## Release Bundle
+
+Steps to create the AppBundle
 
 1. Create production `.env` 
 
-2. Set JKS path property `storeFile` in `/android/key.properties`
+2. Copy the uncrypted JKS to `android/app/key.jks`
 
+3. Build the App Bundle:
+
+```
+flutter build appbundle
+```
 
 ## About
 
