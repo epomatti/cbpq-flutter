@@ -2,8 +2,8 @@
 .env
 mock/node_modules/
 mock/package-lock.json
-scripts/key.jks
 android/app/key.jks
+android/key.properties
 
 # Miscellaneous
 *.class
