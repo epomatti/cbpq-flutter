@@ -2,9 +2,8 @@ name: CI
 
 on:
   push:
-    branches: 
-      - master
-      - develop
+    paths-ignore:
+    - '**.md'
 
 jobs:
   build:
@@ -17,10 +16,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1    
     - name: Creates .env file
-      run: |
-        echo $PWD
-        whereami
-        sudo cp .env.prod .env
+      run: sudo cp .env.prod .env
     - name: Install dependencies
       run: sudo /home/cirrus/sdks/flutter/bin/flutter pub get    
     - name: Run tests
