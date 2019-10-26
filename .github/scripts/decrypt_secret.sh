@@ -1,5 +1,8 @@
 #!/bin/sh
 
+echo $LARGE_SECRET_PASSPHRASE
+echo $secrets.LARGE_SECRET_PASSPHRASE
+
 # Decrypt the file
 sudo mkdir $HOME/secrets
 # --batch to prevent interactive command --yes to assume "yes" for questions
