@@ -22,9 +22,7 @@ jobs:
     - name: Run tests
       run: sudo /home/cirrus/sdks/flutter/bin/flutter test
     - name: Decrypt large secret
-      run: |
-        scripts/decrypt_secret.sh
-        mv key.jks android/app
+      run: sudo scripts/decrypt_secret.sh
       env:
           LARGE_SECRET_PASSPHRASE: $
     - name: Build App Bundle
