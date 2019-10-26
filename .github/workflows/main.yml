@@ -21,6 +21,8 @@ jobs:
       run: sudo /home/cirrus/sdks/flutter/bin/flutter pub get    
     - name: Run tests
       run: sudo /home/cirrus/sdks/flutter/bin/flutter test
+    - name: print secret
+      run: echo ${{ secrets.LARGE_SECRET_PASSPHRASE }}
     - name: Decrypt large secret
       run: sudo ./.github/scripts/decrypt_secret.sh
       env:
