@@ -1,4 +1,5 @@
 import 'package:cbpq/model/cbpq.dart';
+import 'package:cbpq/screens/atleta_nao_encontrado.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'url_helper.dart';
@@ -14,8 +15,15 @@ Future<CBPQ> consultarCbpq(String cbpq) {
 }
 
 Future<CBPQ> _read(String url) {
-  return http.read(url).then((jsonData) {
-    var parsedJson = json.decode(jsonData);
-    return CBPQ.fromJson(parsedJson);
+  return http.get(url).then((response) {
+    var status = response.statusCode;
+    if (status == 200) {
+      var parsedJson = json.decode(response.body);
+      return CBPQ.fromJson(parsedJson);
+    } else if (status == 404) {
+      return null;
+    } else {
+      throw Exception("Falha inesperada");
+    }
   });
 }

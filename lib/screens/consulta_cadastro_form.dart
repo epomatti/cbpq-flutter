@@ -90,11 +90,6 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
       loading = true;
     });
     getDocHandler().consultar(documento).then((cbpq) {
-      // setState(() {
-      //   loading = false;
-      //   documento = null;
-      //   isButtonDisabled = true;
-      // });
       return cbpq;
     }).then((cbpq) {
       Navigator.push(
