@@ -11,10 +11,10 @@ void main() {
     json['atleta'] = 'Evandro Pomatti';
     json['clube'] = 'Droz Zone 47 Clube Escola Paraquedismo';
     json['federacao'] = 'Federação Catarinense de Paraqueismo';
-    json['filiacao'] = '10/05/2018';
-    json['validade'] = '27/06/2020';
-    json['emissao'] = '13/05/2018';
-    json['imagem'] = 'https://www.cbpq.org.br/site/download/i/foto/90155.jpg';
+    json['data_filiacao'] = '10/05/2018';
+    json['data_validade_licenca'] = '27/06/2020';
+    json['data_emissao_credencial'] = '13/05/2018';
+    json['foto'] = 'https://www.cbpq.org.br/site/download/i/foto/90155.jpg';
     
     var cbpq = CBPQ.fromJson(json);
 
