@@ -70,6 +70,7 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
         loading = false;
       });
     } else {
+      print(error);
       setState(() {
         errorMessage = 'Falha inesperada.';
         loading = false;

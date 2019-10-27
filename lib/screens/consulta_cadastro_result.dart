@@ -63,9 +63,9 @@ class ConsultaCadastroResult extends StatelessWidget {
 
   Color statusColor() {
     String status = cbpq.status;
-    if (status == 'REGULAR') {
+    if (status.toUpperCase() == 'REGULAR') {
       return Colors.green;
-    } else if (status == 'INATIVO') {
+    } else if (status.toUpperCase() == 'IRREGULAR') {
       return Colors.red;
     } else {
       return Colors.black;
@@ -73,7 +73,7 @@ class ConsultaCadastroResult extends StatelessWidget {
   }
 
   Color validadeColor(context) {
-    DateTime validade = DateFormat('d/M/yyyy').parse(cbpq.validade);
+    DateTime validade = DateFormat('yyyy-M-d').parse(cbpq.validade);
     DateTime now = DateTime.now();
     now = DateTime(now.year, now.month, now.day);
     DateTime warningDate =
@@ -93,7 +93,7 @@ class ConsultaCadastroResult extends StatelessWidget {
         Item(name: 'Atleta', value: cbpq.atleta),
         Item(
           name: 'Status',
-          value: cbpq.status,
+          value: cbpq.status.toUpperCase(),
           textColor: statusColor(),
           fontWeight: FontWeight.bold,
           shadow: Shadow(
@@ -107,7 +107,6 @@ class ConsultaCadastroResult extends StatelessWidget {
         Item(name: 'Categoria', value: cbpq.categoria),
         Item(name: 'Clube', value: cbpq.clube),
         Item(name: 'Federação', value: cbpq.federacao),
-        Item(name: 'Habilitação', value: cbpq.habilitacao),
         Item(name: 'Filiação', value: cbpq.filiacao),
         Item(
           name: 'Validade',
@@ -119,20 +118,26 @@ class ConsultaCadastroResult extends StatelessWidget {
     );
   }
 
-  share() {}
+  _buildImage() {
+    var hasImage = cbpq.imagem != null && cbpq.imagem.isNotEmpty;
+    return Center(
+      child: Container(
+        width: 150,
+        height: 150,
+        child: hasImage
+            ? Image(
+                image: NetworkImage(cbpq.getImageUrl()),
+              )
+            : Image.asset('assets/no_foto.jpg'),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: DefaultAppBar(
         titleText: 'Licença CBPQ',
-        // actions: <Widget>[
-        //   IconButton(
-        //     icon: Icon(Icons.share),
-        //     tooltip: 'Compartilhar',
-        //     onPressed: null,
-        //   )
-        // ],
       ),
       body: Center(
         child: ListView(
@@ -140,15 +145,7 @@ class ConsultaCadastroResult extends StatelessWidget {
             SizedBox(
               height: 16.0,
             ),
-            Center(
-              child: Container(
-                width: 150,
-                height: 150,
-                child: Image(
-                  image: NetworkImage(cbpq.imagem),
-                ),
-              ),
-            ),
+            _buildImage(),
             SizedBox(
               height: 20.0,
             ),

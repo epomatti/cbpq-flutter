@@ -1,12 +1,12 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 class CBPQ {
-  // 'REGULAR' 'INATIVO'
   String status;
   String cbpq;
   String categoria;
   String atleta;
   String clube;
   String federacao;
-  String habilitacao;
   String filiacao;
   String validade;
   String emissao;
@@ -20,11 +20,15 @@ class CBPQ {
     cbpq.atleta = json['atleta'];
     cbpq.clube = json['clube'];
     cbpq.federacao = json['federacao'];
-    cbpq.habilitacao = json['habilitacao'];
     cbpq.filiacao = json['filiacao'];
     cbpq.validade = json['validade'];
     cbpq.emissao = json['emissao'];
     cbpq.imagem = json['imagem'];
     return cbpq;
+  }
+
+  String getImageUrl() {
+    var base = DotEnv().env['IMAGE_BASE_URL'];
+    return '$base/$imagem';
   }
 }

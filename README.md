@@ -23,8 +23,6 @@ node mock.js
 
 ## Release Bundle
 
-Steps to create the AppBundle:
-
 1. Clone the repo
 
 2. Create `.env` file:
@@ -45,6 +43,4 @@ flutter build appbundle --build-name <build_name> --build-version <build_version
 
 ## About
 
-This app is developed without cost and in partnership with CBPQ.
-
-Made for skydivers, by skydivers ;)
+Made with love. For skydivers, by skydivers ;)

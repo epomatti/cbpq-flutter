@@ -3,37 +3,25 @@ const app = express()
 const port = 3000
 
 json = {
-  "data":
-  {
-    "status": "1",
-    "cbpq": "90155",
-    "categoria": "2",
-    "atleta": "Evandro Pomatti",
-    "clube": "Drop Zone 47 Clube Escola Paraquedismo",
-    "federacao": "Federação Catarinense de Paraquedismo",
-    "filiacao": "2018-05-10",
-    "validade": "2020-06-27",
-    "imagem": "90155.jpg", // empty is ""
-    "emissao": "2018-05-13" // empty is "0000-00-00"
-  },
-  "message": {
-    "text": "Atleta encontrado"
-  }
+  "status": "Regular",
+  "cbpq": "90155",
+  "categoria": "A",
+  "atleta": "Evandro Pomatti",
+  "clube": "Drop Zone 47 Clube Escola Paraquedismo",
+  "federacao": "Federação Catarinense de Paraquedismo",
+  "filiacao": "2018-05-10",
+  "validade": "2020-06-27",
+  "imagem": "90155.jpg",
+  "emissao": "2018-05-13"
 }
 
-json_not_found = {
-  "message": {
-    "text": "Atleta não encontrado"
-  }
-}
-
-app.get('/site/api/licenca', function (req, res) {
+app.get('/site/api/request', function (req, res) {
   const { cbpq, cpf } = req.query
   if (cbpq) {
     if (cbpq === '90155') {
       res.send(atleta)
     } else {
-      res.status(404).send(json_not_found)
+      res.status(404).send("Nenhum Atleta registrado com este numero de cbpq")
     }
   } else if (cpf) {
     res.send(atleta)
