@@ -16,6 +16,6 @@ Future<CBPQ> consultarCbpq(String cbpq) {
 Future<CBPQ> _read(String url) {
   return http.read(url).then((jsonData) {
     var parsedJson = json.decode(jsonData);
-    return CBPQ.fromJson(parsedJson[0]);
+    return CBPQ.fromJson(parsedJson);
   });
 }
