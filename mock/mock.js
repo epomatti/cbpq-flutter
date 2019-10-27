@@ -1,27 +1,39 @@
 const express = require('express')
 const app = express()
+const port = 3000
 
-atleta = {
-  status: 'REGULAR',
-  cbpq: '90155',
-  categoria: 'A',
-  atleta: 'Evandro Pomatti',
-  clube: 'Droz Zone 47 Clube Escola Paraquedismo',
-  federacao: 'Federação Catarinense de Paraqueismo',
-  habilitacao: 'Atleta',
-  filiacao: '10/05/2018',
-  validade: '27/06/2020',
-  emissao: '13/05/2018',
-  imagem: 'https://www.cbpq.org.br/site/download/i/foto/90155.jpg'
+json = {
+  "data":
+  {
+    "status": "1",
+    "cbpq": "90155",
+    "categoria": "2",
+    "atleta": "Evandro Pomatti",
+    "clube": "Drop Zone 47 Clube Escola Paraquedismo",
+    "federacao": "Federação Catarinense de Paraquedismo",
+    "filiacao": "2018-05-10",
+    "validade": "2020-06-27",
+    "imagem": "90155.jpg", // empty is ""
+    "emissao": "2018-05-13" // empty is "0000-00-00"
+  },
+  "message": {
+    "text": "Atleta encontrado"
+  }
 }
 
-app.get('/api/licenca', function (req, res) {
+json_not_found = {
+  "message": {
+    "text": "Atleta não encontrado"
+  }
+}
+
+app.get('/site/api/licenca', function (req, res) {
   const { cbpq, cpf } = req.query
   if (cbpq) {
     if (cbpq === '90155') {
       res.send(atleta)
     } else {
-      res.status(404).send(`Atleta ${cbpq} não encontrado.`)
+      res.status(404).send(json_not_found)
     }
   } else if (cpf) {
     res.send(atleta)
@@ -30,4 +42,4 @@ app.get('/api/licenca', function (req, res) {
   }
 });
 
-app.listen(3000)
+app.listen(3000, () => console.log(`Mock listening on port ${port}!`))

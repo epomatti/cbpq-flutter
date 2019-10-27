@@ -42,7 +42,7 @@ class _ConsultaCadastroState extends State<ConsultaCadastroForm> {
   onChange(String text) {
     int value = int.tryParse(text);
     if (value != null) {
-      if (value > 0) {
+      if (value >= 0) {
         setState(() {
           documento = text;
           errorMessage = null;
