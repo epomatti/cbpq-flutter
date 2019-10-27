@@ -1,5 +1,4 @@
 import 'package:cbpq/model/cbpq.dart';
-import 'package:cbpq/screens/atleta_nao_encontrado.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'url_helper.dart';

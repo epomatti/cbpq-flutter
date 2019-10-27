@@ -1,4 +1,4 @@
-import 'package:cbpq/screens/SplashPage.dart';
+import 'package:cbpq/screens/splash_page.dart';
 import 'package:cbpq/screens/consulta_cadastro_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
