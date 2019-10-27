@@ -1,7 +1,8 @@
+import 'package:intl/intl.dart';
+
 class DateUtil {
-
-parseBR() {
-  
-}
-
+  static convertToBrDate(String isoDate) {
+    DateTime date = DateFormat('yyyy-M-d').parse(isoDate);
+    return DateFormat('dd/MM/yyyy').format(date);
+  }
 }
