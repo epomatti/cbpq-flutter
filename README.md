@@ -2,6 +2,8 @@
 
 An App for skydivers in Brazil to check their license status.
 
+<img src='docs/start_page.jpg' width=190 />
+
 [![Codemagic build status](https://api.codemagic.io/apps/5db4aca125dc3f2949a9e89f/5db4aca125dc3f2949a9e89e/status_badge.svg)](https://codemagic.io/apps/5db4aca125dc3f2949a9e89f/5db4aca125dc3f2949a9e89e/latest_build) [![Actions Status](https://github.com/epomatti/cbpq-flutter/workflows/CI/badge.svg)](https://github.com/epomatti/cbpq-flutter/actions)
 
 ## Getting Started
