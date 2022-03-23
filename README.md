@@ -1,8 +1,11 @@
 # CBPQ
 
+[![Codemagic build status](https://api.codemagic.io/apps/5db4aca125dc3f2949a9e89f/5db4aca125dc3f2949a9e89e/status_badge.svg)](https://codemagic.io/apps/5db4aca125dc3f2949a9e89f/5db4aca125dc3f2949a9e89e/latest_build) [![Actions Status](https://github.com/epomatti/cbpq-flutter/workflows/CI/badge.svg)](https://github.com/epomatti/cbpq-flutter/actions)
+
 An App for skydivers in Brazil to check their license status.
 
-[![Codemagic build status](https://api.codemagic.io/apps/5db4aca125dc3f2949a9e89f/5db4aca125dc3f2949a9e89e/status_badge.svg)](https://codemagic.io/apps/5db4aca125dc3f2949a9e89f/5db4aca125dc3f2949a9e89e/latest_build) [![Actions Status](https://github.com/epomatti/cbpq-flutter/workflows/CI/badge.svg)](https://github.com/epomatti/cbpq-flutter/actions)
+**Note:** This app has been deprecated and will no longer be supported as the official CBPQ [site](https://www.cbpq.org.br/) now supports PWA and is maintained by the federation.
+
 
 ## Getting Started
 
